@@ -1,0 +1,166 @@
+body {
+	background-image: url("background.png");
+    background-position: left top;
+    background-attachment: fixed;
+    background-repeat: repeat-x;;
+	margin:0;
+	font-family:"Montserrat","Avenir";
+	background-size: cover;
+	background-position: -350px -30px; 
+}
+
+.winner {
+background-color: #111123;
+
+}
+
+
+.square {
+	width:30%;
+	opacity: 0.5;
+	background-color:darkgrey;
+	padding-bottom: 30%;
+	float:left;
+	margin:1.66%;
+	border-radius: 15%;
+	transition: background 0.6s;
+	-webkit-transition: background 0.6s;
+	-moz-transition: background 0.6s;	
+}
+
+
+.square:hover {
+    opacity: 1.0;
+    width:30%;
+	padding-bottom: 30%;
+	float:left;
+	margin:1.66%;
+	border-radius: 15%;
+	transition: background 0.6s;
+	-webkit-transition: background 0.6s;
+	-moz-transition: background 0.6s;
+}
+
+.win {
+	animation: win 0.6s ease-in-out;
+}
+
+@keyframes win {
+  0% {
+    transform: translateX(0);
+  }
+
+  20% {
+    transform: translateX(-10px);
+  }
+
+  40% {
+    transform: translateX(10px);
+  }
+
+  60% {
+    transform: translateX(-10px);
+  }
+
+  80% {
+    transform: translateX(10px);
+  }
+
+  100% {
+    transform: translateX(0);
+  }
+}
+
+#container {
+	max-width: 900px;
+	margin: auto auto;
+}
+
+button {
+border:none;
+background:none;
+text-transform: uppercase;
+height:100%;
+font-weight: 700;
+color: white;
+letter-spacing: 1px;
+font-size: inherit;
+transition: all 0.3s;
+-webkit-transition: all 0.3s;
+-moz-transition: all 0.3s;
+outline: none;
+
+}
+
+button:hover {
+	color:black;
+	background-color: white;
+}
+
+#colorTitle {
+	font-size: 200%;
+}
+
+.title {
+background: black;
+height: 40px;	
+}
+
+
+.players {
+	width: 10%;
+	text-align: center;
+	}
+
+.noughtsAndCrosses {
+	width: 10%;
+	text-align: center;
+	}
+
+
+.selected {
+	background: rgb(237,28,36);
+	color: black;
+	transition: all 0.3s;
+-webkit-transition: all 0.3s;
+-moz-transition: all 0.3s;
+}
+
+#message {
+display: inline-block;
+width:20%;
+color: steelBlue;
+}
+
+.crosses {
+		width:30%;
+	opacity: 1;
+	background-color:grey;
+	padding-bottom: 30%;
+	float:left;
+	margin:1.66%;
+	border-radius: 15%;
+	transition: background 0.6s;
+	-webkit-transition: background 0.6s;
+	-moz-transition: background 0.6s;	
+background-image: url("x.png");
+
+	background-size: cover;
+}
+
+.noughts {
+	width:30%;
+	opacity: 1;
+	background-color:grey;
+	padding-bottom: 30%;
+	float:left;
+	margin:1.66%;
+	border-radius: 15%;
+	transition: background 0.6s;
+	-webkit-transition: background 0.6s;
+	-moz-transition: background 0.6s;	
+	background-image: url("zero.png");
+	background-size: cover;
+}
+
+
