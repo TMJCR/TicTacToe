@@ -1,6 +1,5 @@
 var squares = document.querySelectorAll(".square");
 var onePlayer = document.querySelector("#onePlayer");
-var twoPlayer = document.querySelector("#twoPlayer");
 var noughtsOrCrosses = document.querySelector("#noughtsOrCrosses");
 var noughts = document.querySelector("#noughts");
 var crosses = document.querySelector("#crosses");
@@ -259,7 +258,6 @@ function checkWinner(array) {
 for (var i = 0; i < squares.length; i++) {
     squares[i].addEventListener("click", function() {
         onePlayer.classList.add("win");
-        twoPlayer.classList.add("win");
     });
 }
 
@@ -276,13 +274,12 @@ function addShakeNoughtsCrosses() {
 
 onePlayer.addEventListener("click", function() {
     this.classList.add("selected");
-    twoPlayer.classList.remove("selected");
     noughtsOrCrosses.style.display = "block";
     addShakeNoughtsCrosses();
+    onePlayerMode()
     for (var i = 0; i < squares.length; i++) {
         squares[i].addEventListener("click", function() {
             onePlayer.classList.remove("win");
-            twoPlayer.classList.remove("win");
         });
     }
 });
@@ -294,7 +291,6 @@ noughts.addEventListener("click", function() {
     crosses.classList.remove("selected");
     player = "noughts";
     computer = "crosses";
-    onePlayerMode()
     for (var i = 0; i < squares.length; i++) {
         squares[i].addEventListener("click", function() {
             noughts.classList.remove("win");
@@ -310,7 +306,7 @@ crosses.addEventListener("click", function() {
     noughts.classList.remove("selected");
     player = "crosses";
     computer = "noughts";
-    onePlayerMode()
+
     for (var i = 0; i < squares.length; i++) {
         squares[i].addEventListener("click", function() {
             noughts.classList.remove("win");
@@ -324,33 +320,33 @@ crosses.addEventListener("click", function() {
 
 
 
-twoPlayer.addEventListener("click", function() {
-    player1 = "zero";
-    player2 = "X";
-    this.classList.add("selected");
-    onePlayer.classList.remove("selected");
-    twoPlayerMode()
-});
+// twoPlayer.addEventListener("click", function() {
+//     player1 = "zero";
+//     player2 = "X";
+//     this.classList.add("selected");
+//     onePlayer.classList.remove("selected");
+//     twoPlayerMode()
+// });
 
-function twoPlayerMode() {
+// function twoPlayerMode() {
 
-    for (var i = 0; i < squares.length; i++) {
-        squares[i].addEventListener("click", function() {
-            onePlayer.classList.remove("win");
-            twoPlayer.classList.remove("win");
-            this.classList.remove("square");
-            if (player1 === "X") {
-                this.classList.add("crosses");
-                player1 = "zero";
-                player2 = "X";
-            } else {
-                this.classList.add("noughts");
-                player1 = "X";
-                player2 = "zero";
+//     for (var i = 0; i < squares.length; i++) {
+//         squares[i].addEventListener("click", function() {
+//             onePlayer.classList.remove("win");
+//             twoPlayer.classList.remove("win");
+//             this.classList.remove("square");
+//             if (player1 === "X") {
+//                 this.classList.add("crosses");
+//                 player1 = "zero";
+//                 player2 = "X";
+//             } else {
+//                 this.classList.add("noughts");
+//                 player1 = "X";
+//                 player2 = "zero";
 
-            }
-            checkWinner();
-        })
+//             }
+//             checkWinner();
+//         })
 
-    }
-}
+//     }
+// }
