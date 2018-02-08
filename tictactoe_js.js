@@ -325,6 +325,7 @@ crosses.addEventListener("click", function() {
 
 
 function resetGame(){
+    document.body.style.backgroundImage = "url('background.png')";
     for (var i = 0; i < squares.length; i++) {
         squares[i].classList.remove("noughts");
         squares[i].classList.remove("crosses");
