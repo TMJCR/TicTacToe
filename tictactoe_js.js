@@ -11,6 +11,7 @@ var playerMoveNumber = 0;
 var computerStrategy = 0;
 var movesPlayed = [];
 var selection = "";
+var win;
 var player = "";
 var winningCombinations = [
     [1, 2, 3],
@@ -47,7 +48,9 @@ function onePlayerMode() {
             } else {
                 document.body.style.backgroundImage = "url('background_crosses.png')";
             }
+            if (win !==true) {                     
             setTimeout(computerTurn, 800);
+            }
         })
     }
 }
@@ -225,7 +228,6 @@ function compWin() {
 
 
 function checkWinner(array) {
-	console.log(array);
     if (array.length > 2) {
         for (var i = 0; i < winningCombinations.length; i++) {
 
@@ -242,8 +244,9 @@ function checkWinner(array) {
                     if (winningArray.length > 2) {
                         for (var w = 0; w < squares.length; w++) {
                             squares[w].classList.add("win");
+                            win=true;
                         }
-
+                        setTimeout(resetGame, 800);
                         return;
                     }
                 }
@@ -251,6 +254,11 @@ function checkWinner(array) {
 
         }
     }
+    if (movesPlayed.length===9){
+    win=true;
+    setTimeout(resetGame, 800);
+    return;
+}
 }
 
 
@@ -311,42 +319,26 @@ crosses.addEventListener("click", function() {
         squares[i].addEventListener("click", function() {
             noughts.classList.remove("win");
             crosses.classList.remove("win");
-
-
         });
     }
 });
 
 
+function resetGame(){
+    for (var i = 0; i < squares.length; i++) {
+        squares[i].classList.remove("noughts");
+        squares[i].classList.remove("crosses");
+        squares[i].classList.add("square");
+        squares[i].classList.remove("win");             
+}
+playerArray = [];
+computerArray = [];
+playerMoveNumber = 0;
+computerStrategy = 0;
+movesPlayed = [];
+selection = "";
+winningArray=[];
+win=false;
+return;
 
-
-// twoPlayer.addEventListener("click", function() {
-//     player1 = "zero";
-//     player2 = "X";
-//     this.classList.add("selected");
-//     onePlayer.classList.remove("selected");
-//     twoPlayerMode()
-// });
-
-// function twoPlayerMode() {
-
-//     for (var i = 0; i < squares.length; i++) {
-//         squares[i].addEventListener("click", function() {
-//             onePlayer.classList.remove("win");
-//             twoPlayer.classList.remove("win");
-//             this.classList.remove("square");
-//             if (player1 === "X") {
-//                 this.classList.add("crosses");
-//                 player1 = "zero";
-//                 player2 = "X";
-//             } else {
-//                 this.classList.add("noughts");
-//                 player1 = "X";
-//                 player2 = "zero";
-
-//             }
-//             checkWinner();
-//         })
-
-//     }
-// }
+}
